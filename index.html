@@ -1133,7 +1133,7 @@
               <span class="contact-link-value">ivanmesadominguez</span>
             </div>
           </a>
-          <a class="contact-link" href="/cdn-cgi/l/email-protection#9bf2edfaf5b5f6fee8fab5fff4f6f2f5fceefee1dbfcf6faf2f7b5f8f4f6">
+          <a class="contact-link" href="mailto:ivan.mesa.dominguez@gmail.com">
             <div class="contact-link-icon"> </div>
             <div class="contact-link-text">
               <span class="contact-link-label">Email</span>
@@ -1168,7 +1168,7 @@
 </footer>
 
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // ── REPOS FETCH ──────────────────────────────
   const GITHUB_USERNAME = "IvnMD";
   let allRepos = [];
@@ -1281,14 +1281,13 @@
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        e.target.classList.add("visible");
+        e.target.classList.add('visible');
         io.unobserve(e.target);
       }
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
+</body>
 </html>
-
-
