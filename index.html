@@ -192,7 +192,7 @@
   }
   .hero-photo {
     flex-shrink: 0;
-    width: clamp(130px,18vw,220px); height: clamp(130px,18vw,220px);
+    width: clamp(86px,12vw,140px); height: clamp(86px,12vw,140px);
     border-radius: 50%;
     border: 2px solid var(--pink);
     box-shadow: 0 0 0 4px rgba(255,45,155,0.12), 0 0 24px var(--pink-glow), 0 0 50px rgba(255,45,155,0.12);
@@ -213,13 +213,13 @@
     font-size: clamp(14px,1.7vw,17px); color: #e8deff;
     font-style: italic; line-height: 1.7; max-width: 500px; margin-top: 20px;
     opacity: 0; animation: fadeUp .7s .4s ease forwards;
-    background: rgba(7,0,15,0.55);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    padding: 10px 16px;
+    background: rgba(7,0,15,0.62);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 12px 16px;
     border-radius: 8px;
-    border-left: 2px solid rgba(0,229,255,0.4);
-    text-shadow: 0 1px 8px rgba(0,0,0,0.9);
+    border-left: 2px solid rgba(0,229,255,0.45);
+    text-shadow: 0 1px 6px rgba(0,0,0,0.8);
   }
   .hero-pills {
     display: flex; flex-wrap: wrap; gap: 7px; margin-top: 26px;
@@ -227,9 +227,12 @@
   }
   .lang-pill {
     font-family: 'Share Tech Mono', monospace; font-size: 10.5px;
-    color: var(--cyan); border: 1px solid var(--border-c);
-    background: var(--cyan-dim); padding: 4px 12px; border-radius: 2px;
-    letter-spacing: 0.06em; transition: box-shadow .2s, border-color .2s;
+    color: var(--cyan); border: 1px solid rgba(0,229,255,0.35);
+    background: rgba(7,0,15,0.70);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    padding: 4px 12px; border-radius: 2px;
+    letter-spacing: 0.06em; transition: box-shadow .2s, border-color .2s, background .2s;
+    text-shadow: 0 0 8px var(--cyan-glow);
   }
   .lang-pill:hover { border-color: var(--cyan); box-shadow: 0 0 10px var(--cyan-glow); }
   .hero-actions {
@@ -572,10 +575,10 @@
     .topbar-nav { display: none; }
     .hamburger { display: flex; }
     .hero { padding: 42px 20px 58px; min-height: auto; }
-    .hero-photo-wrap { flex-direction: row; align-items: center; gap: 15px; }
-    .hero-photo { width: 100px; height: 100px; }
+    .hero-photo-wrap { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .hero-photo { width: 74px; height: 74px; }
     .hero-eyebrow { font-size: 9px; margin-bottom: 16px; }
-    .hero-name { font-size: clamp(28px,13vw,62px); word-break: break-word; overflow-wrap: break-word; }
+    .hero-name { font-size: clamp(38px,14vw,80px); }
     .hero-sub { font-size: 13.5px; margin-top: 14px; }
     .hero-pills { margin-top: 18px; }
     .hero-actions { margin-top: 26px; gap: 9px; }
@@ -599,8 +602,8 @@
     .value-card { padding: 22px 16px; }
   }
   @media (max-width: 380px) {
-    .hero-name { font-size: clamp(22px, 9vw, 32px); word-break: break-word; overflow-wrap: break-word; }
-    .hero-photo { width: 84px; height: 84px; }
+    .hero-name { font-size: clamp(32px,11vw,56px); }
+    .hero-photo { width: 62px; height: 62px; }
     .soft-grid { grid-template-columns: 1fr; }
   }
   </style>
@@ -616,7 +619,7 @@
     <a class="nav-link" href="#formacion">Formación</a>
     <a class="nav-link" href="#proyectos">Proyectos</a>
     <a class="nav-link" href="#repos">Repos</a>
-    <a class="nav-cta" href="/cdn-cgi/l/email-protection#f29b84939cdc9f978193dc969d9f9b9c95879788b2959f939b9edc919d9f">Contacto</a>
+    <a class="nav-cta" href="/cdn-cgi/l/email-protection#85ecf3e4ebabe8e0f6e4abe1eae8ecebe2f0e0ffc5e2e8e4ece9abe6eae8">Contacto</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menú">
     <span></span><span></span><span></span>
@@ -628,7 +631,7 @@
   <a href="#formacion" onclick="closeMobileMenu()">Formación</a>
   <a href="#proyectos" onclick="closeMobileMenu()">Proyectos</a>
   <a href="#repos"     onclick="closeMobileMenu()">Repos</a>
-  <a href="/cdn-cgi/l/email-protection#cda4bbaca3e3a0a8beace3a9a2a0a4a3aab8a8b78daaa0aca4a1e3aea2a0" class="m-cta">Contacto</a>
+  <a href="/cdn-cgi/l/email-protection#2e47584f4000434b5d4f004a41434740495b4b546e49434f4742004d4143" class="m-cta">Contacto</a>
 </div>
 
 <!-- HERO SCENE -->
@@ -672,12 +675,12 @@
   </div>
 
   <div class="hero">
-    <p class="hero-eyebrow">Disponible · Prácticas DAM · Junior Dev · Los Realejos, Tenerife</p>
+    <p class="hero-eyebrow">Prácticas DAM · Junior Dev · Canarias &amp; Remoto · Disponible ya</p>
     <div class="hero-photo-wrap">
       <img class="hero-photo" src="assets/img/perfil.jpg" alt="Iván Mesa Domínguez" onerror="this.style.display='none'">
       <div class="hero-text">
-        <h1 class="hero-name">IVÁN<br>MESA<br>DGUEZ</h1>
-        <p class="hero-sub">15+ años en dirección comercial. Ahora convirtiendo experiencia de negocio en código que resuelve problemas reales.</p>
+        <h1 class="hero-name">IVÁN<br>MESA<br>DOMÍNGUEZ</h1>
+        <p class="hero-sub">Estudiante DAM con 15 años de experiencia profesional en empresa. Visión de negocio, capacidad analítica y compromiso real con el aprendizaje continuo. Listo para aportar desde el primer día.</p>
         <div class="hero-pills">
           <span class="lang-pill">Java</span>
           <span class="lang-pill">C++</span>
@@ -722,8 +725,8 @@
   <div class="wrap">
     <div class="section-header reveal">
       <p class="section-tag">Sobre mí</p>
-      <h2 class="section-title">Negocio que habla<br>el idioma del <span>código</span></h2>
-      <p class="section-desc">Un perfil poco habitual: 15 años de criterio comercial afinando cada decisión técnica.</p>
+      <h2 class="section-title">Junior con visión<br>de <span>negocio real</span></h2>
+      <p class="section-desc">No un alumno verde ni un excomercial reconvertido — un desarrollador en formación que entiende cómo el software impacta en los procesos reales de una empresa.</p>
     </div>
     <div class="about-grid">
       <div class="about-timeline reveal">
@@ -777,22 +780,22 @@
         </div>
       </div>
       <div class="value-card reveal">
-        <p class="value-highlight">Visión <span>360°</span> del producto</p>
+        <p class="value-highlight">¿Por qué un perfil <span>así</span>?</p>
         <div class="value-row">
           <span class="value-icon">🧩</span>
-          <span>Entiendo cómo el software afecta al negocio desde dentro. Diseño soluciones que tienen sentido para quien las usa.</span>
+          <span>15 años digitalizando procesos, analizando datos y usando Salesforce CRM me enseñaron algo que no se aprende en un aula: <strong style="color:#f0e6ff">la tecnología debe adaptarse al negocio, no al revés.</strong></span>
         </div>
         <div class="value-row">
-          <span class="value-icon">📊</span>
-          <span>Experiencia real con Salesforce CRM: pipelines, reportes y automatización de procesos comerciales.</span>
+          <span class="value-icon">⚙️</span>
+          <span>Automatización real en producción: desarrollé una herramienta Google Apps Script que eliminó tareas manuales repetitivas en una empresa, con 4 iteraciones evolutivas y feedback del cliente.</span>
         </div>
         <div class="value-row">
-          <span class="value-icon">🚀</span>
-          <span>Buscando prácticas DAM o posición Junior/Trainee donde combinar criterio de negocio con capacidad técnica.</span>
+          <span class="value-icon">🎯</span>
+          <span>Busco prácticas DAM o posición Junior/Trainee en Canarias o remoto donde crecer técnicamente y aportar responsabilidad, organización y mentalidad orientada a resultados desde el primer día.</span>
         </div>
         <div class="value-row">
           <span class="value-icon">🤝</span>
-          <span>Colaboro con IA (Claude, Gemini) como herramienta de apoyo manteniendo criterio propio en decisiones técnicas.</span>
+          <span>Me comunico igual de bien con perfiles técnicos y con dirección. Sé traducir requisitos de negocio a lógica de código y viceversa.</span>
         </div>
       </div>
     </div>
@@ -807,6 +810,7 @@
     <div class="section-header reveal">
       <p class="section-tag">Stack tecnológico</p>
       <h2 class="section-title">Herramientas &amp;<br><span>Conocimientos</span></h2>
+      <p class="section-desc">Formación técnica activa con aplicación práctica real en cada tecnología.</p>
     </div>
     <div class="skills-grid">
       <div class="skill-card reveal">
@@ -920,7 +924,7 @@
     <div class="section-header reveal">
       <p class="section-tag">Proyectos</p>
       <h2 class="section-title">Código con<br><span>Propósito Real</span></h2>
-      <p class="section-desc">Proyectos académicos y soluciones reales que combinan criterio técnico y de negocio.</p>
+      <p class="section-desc">Desde algoritmos de bajo nivel hasta automatización empresarial en producción — proyectos con propósito real, no solo ejercicios de clase.</p>
     </div>
     <div class="projects-grid">
       <div class="project-card reveal">
@@ -1023,11 +1027,11 @@
               <span class="contact-link-value">ivanmesadominguez</span>
             </div>
           </a>
-          <a class="contact-link" href="/cdn-cgi/l/email-protection#ef86998e81c1828a9c8ec18b80828681889a8a95af88828e8683c18c8082">
+          <a class="contact-link" href="/cdn-cgi/l/email-protection#49203f282767242c3a28672d262420272e3c2c33092e24282025672a2624">
             <div class="contact-link-icon">✉️</div>
             <div class="contact-link-text">
               <span class="contact-link-label">Email</span>
-              <span class="contact-link-value"><span class="__cf_email__" data-cfemail="bed7c8dfd090d3dbcddf90dad1d3d7d0d9cbdbc4fed9d3dfd7d290ddd1d3">[email&#160;protected]</span></span>
+              <span class="contact-link-value"><span class="__cf_email__" data-cfemail="3a534c5b5414575f495b145e555753545d4f5f407a5d575b535614595557">[email&#160;protected]</span></span>
             </div>
           </a>
           <a class="contact-link" href="https://github.com/IvnMD" target="_blank">
@@ -1041,10 +1045,10 @@
       </div>
       <div class="reveal">
         <p class="contact-quote">
-          De la gestión comercial al desarrollo de software: donde los <strong>datos se convierten en soluciones</strong>.
+          No busco una oportunidad para "aprender desde cero". Busco un equipo donde <strong>aportar desde el primer día</strong> y seguir creciendo como desarrollador.
         </p>
         <p class="contact-sub">
-          Disponible para prácticas DAM y posiciones Junior/Trainee en Canarias o remoto. Aporto visión técnica combinada con 15 años de criterio de negocio.
+          Disponible de forma inmediata para prácticas DAM o posición Junior/Trainee en Canarias (presencial o remoto). Carné B y vehículo propio. 15 años de criterio profesional al servicio del código.
         </p>
       </div>
     </div>
@@ -1150,18 +1154,4 @@
     hamburger.classList.remove("open"); mobileMenu.classList.remove("open");
   }
   document.addEventListener("click",e=>{
-    if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){closeMobileMenu();}
-  });
-
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-</body>
-</html>
+    if(!hamburger.contains(e.target)&&!mobileMenu.cont
