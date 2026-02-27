@@ -192,7 +192,7 @@
   }
   .hero-photo {
     flex-shrink: 0;
-    width: clamp(86px,12vw,140px); height: clamp(86px,12vw,140px);
+    width: clamp(130px,18vw,220px); height: clamp(130px,18vw,220px);
     border-radius: 50%;
     border: 2px solid var(--pink);
     box-shadow: 0 0 0 4px rgba(255,45,155,0.12), 0 0 24px var(--pink-glow), 0 0 50px rgba(255,45,155,0.12);
@@ -576,7 +576,7 @@
     .hamburger { display: flex; }
     .hero { padding: 42px 20px 58px; min-height: auto; }
     .hero-photo-wrap { flex-direction: column; align-items: flex-start; gap: 16px; }
-    .hero-photo { width: 74px; height: 74px; }
+    .hero-photo { width: 100px; height: 100px; }
     .hero-eyebrow { font-size: 9px; margin-bottom: 16px; }
     .hero-name { font-size: clamp(38px,14vw,80px); }
     .hero-sub { font-size: 13.5px; margin-top: 14px; }
@@ -603,7 +603,7 @@
   }
   @media (max-width: 380px) {
     .hero-name { font-size: clamp(32px,11vw,56px); }
-    .hero-photo { width: 62px; height: 62px; }
+    .hero-photo { width: 84px; height: 84px; }
     .soft-grid { grid-template-columns: 1fr; }
   }
   </style>
@@ -780,22 +780,53 @@
         </div>
       </div>
       <div class="value-card reveal">
-        <p class="value-highlight">¿Por qué un perfil <span>así</span>?</p>
+        <p class="value-highlight">Experiencia <span>profesional</span></p>
+        <p style="color:var(--muted);font-size:12.5px;margin-bottom:14px;font-style:italic">Dirección Comercial y Gestión Empresarial · 15 años</p>
         <div class="value-row">
-          <span class="value-icon">🧩</span>
-          <span>15 años digitalizando procesos, analizando datos y usando Salesforce CRM me enseñaron algo que no se aprende en un aula: <strong style="color:#f0e6ff">la tecnología debe adaptarse al negocio, no al revés.</strong></span>
+          <span class="value-icon">📊</span>
+          <span>Digitalización y optimización de procesos comerciales mediante CRM (Salesforce Sales Cloud).</span>
+        </div>
+        <div class="value-row">
+          <span class="value-icon">📈</span>
+          <span>Análisis de datos de ventas y generación de reportes estratégicos para toma de decisiones.</span>
         </div>
         <div class="value-row">
           <span class="value-icon">⚙️</span>
-          <span>Automatización real en producción: desarrollé una herramienta Google Apps Script que eliminó tareas manuales repetitivas en una empresa, con 4 iteraciones evolutivas y feedback del cliente.</span>
-        </div>
-        <div class="value-row">
-          <span class="value-icon">🎯</span>
-          <span>Busco prácticas DAM o posición Junior/Trainee en Canarias o remoto donde crecer técnicamente y aportar responsabilidad, organización y mentalidad orientada a resultados desde el primer día.</span>
+          <span>Automatización de tareas repetitivas para mejorar eficiencia operativa, incluyendo herramientas propias con Google Apps Script.</span>
         </div>
         <div class="value-row">
           <span class="value-icon">🤝</span>
-          <span>Me comunico igual de bien con perfiles técnicos y con dirección. Sé traducir requisitos de negocio a lógica de código y viceversa.</span>
+          <span>Coordinación interdepartamental y mejora de flujos internos de trabajo.</span>
+        </div>
+        <p style="color:var(--text);font-size:13px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border-n);font-style:italic;line-height:1.6">
+          Esta etapa me ha aportado una visión global del funcionamiento empresarial, algo que aplico ahora al desarrollo de soluciones tecnológicas con enfoque práctico.
+        </p>
+
+        <p class="value-highlight" style="margin-top:24px;font-size:clamp(14px,2vw,18px)">Qué puedo <span>aportar</span></p>
+        <div class="value-row">
+          <span class="value-icon">🎯</span>
+          <span>Responsabilidad y mentalidad profesional desde el primer día.</span>
+        </div>
+        <div class="value-row">
+          <span class="value-icon">📋</span>
+          <span>Capacidad de organización y documentación clara del código y los procesos.</span>
+        </div>
+        <div class="value-row">
+          <span class="value-icon">🧩</span>
+          <span>Visión empresarial aplicada al desarrollo técnico: <strong style="color:#f0e6ff">la tecnología debe adaptarse al negocio, no al revés.</strong></span>
+        </div>
+        <div class="value-row">
+          <span class="value-icon">💬</span>
+          <span>Comunicación fluida con perfiles técnicos y no técnicos. Traduzco requisitos de negocio a lógica de código y viceversa.</span>
+        </div>
+        <div class="value-row">
+          <span class="value-icon">🚀</span>
+          <span>Autonomía y compromiso real con el aprendizaje continuo.</span>
+        </div>
+
+        <div style="margin-top:18px;padding:12px 14px;background:rgba(0,229,255,0.06);border:1px solid rgba(0,229,255,0.2);border-radius:8px;border-left:2px solid var(--cyan)">
+          <p style="font-family:'Share Tech Mono',monospace;font-size:9.5px;color:var(--cyan);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;text-shadow:0 0 5px var(--cyan-glow)">// Disponibilidad</p>
+          <p style="color:var(--muted);font-size:12.5px;line-height:1.6">Interesado en prácticas en empresas tecnológicas o departamentos IT en <strong style="color:var(--text)">Canarias</strong>, con posibilidad de modalidad presencial o <strong style="color:var(--text)">remota</strong>.</p>
         </div>
       </div>
     </div>
@@ -825,8 +856,8 @@
       </div>
       <div class="skill-card reveal">
         <div class="skill-card-icon">🔧</div><h3>Assembly &amp; Bajo Nivel</h3>
-        <p>Programación a nivel de hardware, arquitectura de computadores y funcionamiento del procesador.</p>
-        <div class="skill-tags"><span class="skill-tag">x86</span><span class="skill-tag">Registros</span><span class="skill-tag">Memoria</span></div>
+        <p>Arquitectura de computadores, gestión de registros y memoria. Proyecto real: juego MIPS32 con gráficos en Bitmap Display.</p>
+        <div class="skill-tags"><span class="skill-tag">MIPS32</span><span class="skill-tag">Registros</span><span class="skill-tag">Memoria</span></div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-card-icon">🤖</div><h3>Google Apps Script</h3>
@@ -1154,4 +1185,19 @@
     hamburger.classList.remove("open"); mobileMenu.classList.remove("open");
   }
   document.addEventListener("click",e=>{
-    if(!hamburger.contains(e.target)&&!mobileMenu.cont
+    if(!hamburger.contains(e.target)&&!mobileMenu.contains(e.target)){closeMobileMenu();}
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
