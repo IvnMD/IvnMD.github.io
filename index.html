@@ -562,7 +562,7 @@
 
   /* ── RESPONSIVE ──────────────────────────────── */
   @media (max-width: 1100px) { .hero-deco { right: 20px; width: clamp(155px,20vw,260px); } }
-  @media (max-width: 860px) {
+  @media (max-width: 860px), (max-height: 500px) {
     .hero-deco { display: none; }
     .hero { min-height: auto; padding: 58px clamp(20px,5vw,40px) 76px; }
     section { padding: 64px 0; }
@@ -680,15 +680,15 @@
       <img class="hero-photo" src="assets/img/perfil.jpg" alt="Iván Mesa Domínguez" onerror="this.style.display='none'">
       <div class="hero-text">
         <h1 class="hero-name">IVÁN<br>MESA<br>DOMÍNGUEZ</h1>
-        <p class="hero-sub">Estudiante DAM + 15 años de experiencia profesional que aporta visión empresarial aplicada a soluciones. Listo para contribuir desde el primer día a proyectos reales.</p>
+        <p class="hero-sub">Estudiante DAM con 15 años de experiencia profesional en empresa. Visión de negocio, capacidad analítica y compromiso real con el aprendizaje continuo. Listo para aportar desde el primer día.</p>
         <div class="hero-pills">
           <span class="lang-pill">Java</span>
           <span class="lang-pill">C++</span>
           <span class="lang-pill">HTML / CSS</span>
+          <span class="lang-pill">Assembly</span>
           <span class="lang-pill">Apps Script</span>
           <span class="lang-pill">Salesforce CRM</span>
           <span class="lang-pill">Git</span>
-          <span class="lang-pill">Assembly</span>
         </div>
         <div class="hero-actions">
           <a class="btn-primary" href="#proyectos">Ver proyectos</a>
@@ -749,9 +749,9 @@
         <div class="tl-item">
           <div class="tl-dot">🤖</div>
           <div class="tl-body">
-            <p class="tl-date">2025 - PRESENTE</p>
+            <p class="tl-date">2024</p>
             <p class="tl-title">Automatización Google Workspace</p>
-            <p class="tl-desc">Desarrollo de sistema automatizado con Google Apps Script que sincroniza eventos de Calendar con Sheets, incluyendo parsing avanzado mediante RegEx y normalización de datos.</p>
+            <p class="tl-desc">Solución real para empresa: sincronización Google Calendar → Sheets con Apps Script v3.1.</p>
           </div>
         </div>
         <div class="tl-item">
@@ -851,8 +851,13 @@
       </div>
       <div class="skill-card reveal">
         <div class="skill-card-icon">⚙️</div><h3>C++</h3>
-        <p>Algoritmos de grafos: Kruskal, Dijkstra, Bellman-Ford, Floyd-Warshall, DFS, BFS, PDM.</p>
-        <div class="skill-tags"><span class="skill-tag">STL</span><span class="skill-tag">C++11</span><span class="skill-tag">Algoritmos</span></div>
+        <p>POO, estructuras de datos y algoritmos de grafos: Kruskal, Dijkstra, Bellman-Ford, Floyd-Warshall, DFS, BFS, PDM.</p>
+        <div class="skill-tags"><span class="skill-tag">POO</span><span class="skill-tag">STL</span><span class="skill-tag">C++11</span><span class="skill-tag">Algoritmos</span></div>
+      </div>
+      <div class="skill-card reveal">
+        <div class="skill-card-icon">🔧</div><h3>Assembly &amp; Bajo Nivel</h3>
+        <p>Arquitectura de computadores, gestión de registros y memoria. Proyecto real: juego MIPS32 con gráficos en Bitmap Display.</p>
+        <div class="skill-tags"><span class="skill-tag">MIPS32</span><span class="skill-tag">Registros</span><span class="skill-tag">Memoria</span></div>
       </div>
       <div class="skill-card reveal">
         <div class="skill-card-icon">🤖</div><h3>Google Apps Script</h3>
@@ -866,13 +871,8 @@
       </div>
       <div class="skill-card reveal">
         <div class="skill-card-icon">📈</div><h3>Salesforce CRM</h3>
-        <p>Uso real: .</p>
+        <p>15 años de uso real: pipelines, automatización y reportes de negocio en Sales Cloud.</p>
         <div class="skill-tags"><span class="skill-tag">Sales Cloud</span><span class="skill-tag">Reports</span><span class="skill-tag">Automatización</span></div>
-      </div>
-        <div class="skill-card reveal">
-        <div class="skill-card-icon">🔧</div><h3>Assembly &amp; Bajo Nivel</h3>
-        <p>Arquitectura de computadores, gestión de registros y memoria. Proyecto real: juego MIPS32 con gráficos en Bitmap Display.</p>
-        <div class="skill-tags"><span class="skill-tag">MIPS32</span><span class="skill-tag">Registros</span><span class="skill-tag">Memoria</span></div>
       </div>
     </div>
   </div>
@@ -1022,6 +1022,8 @@
       </select>
       <div class="filter-btns">
         <button class="filter-btn active" data-topic="all">Todos</button>
+        <button class="filter-btn" data-fork="false">Propios</button>
+        <button class="filter-btn" data-fork="true">Forks</button>
         <button class="filter-btn" data-topic="showcase">showcase</button>
         <button class="filter-btn" data-topic="java">java</button>
         <button class="filter-btn" data-topic="cpp">cpp</button>
@@ -1106,7 +1108,7 @@
 
   // Repos
   const GITHUB_USERNAME = "IvnMD";
-  let allRepos = [], activeTopic = "all";
+  let allRepos = [], activeTopic = "all", activeFork = null;
 
   function formatDate(iso){
     return new Date(iso).toLocaleDateString("es-ES",{year:"numeric",month:"short",day:"2-digit"});
@@ -1118,7 +1120,7 @@
     return (await res.json()).map(r=>({
       name:r.name, html_url:r.html_url, description:r.description||"",
       language:r.language||"—", stargazers_count:r.stargazers_count||0,
-      updated_at:r.updated_at, topics:r.topics||[]
+      updated_at:r.updated_at, topics:r.topics||[], fork:r.fork||false
     }));
   }
   function applyFilters(repos){
@@ -1127,7 +1129,8 @@
     let out=repos.filter(r=>{
       const txt=r.name.toLowerCase().includes(q)||r.description.toLowerCase().includes(q);
       const top=activeTopic==="all"?true:r.topics.includes(activeTopic);
-      return txt&&top;
+      const forkMatch=activeFork===null?true:(r.fork===activeFork);
+      return txt&&top&&forkMatch;
     });
     if(sort==="updated") out.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
     if(sort==="stars")   out.sort((a,b)=>b.stargazers_count-a.stargazers_count);
@@ -1145,7 +1148,7 @@
         :`<span class="repo-pill">sin topics</span>`;
       el.insertAdjacentHTML("beforeend",`
         <div class="repo-card">
-          <h4>${r.name}</h4>
+          <h4>${r.name}${r.fork?' <span style="font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--muted);border:1px solid var(--border-n);padding:1px 6px;border-radius:2px;vertical-align:middle">fork</span>':''}</h4>
           <p class="repo-desc">${r.description||"Sin descripción"}</p>
           <div class="repo-pills">${pills}</div>
           <div class="repo-meta">
@@ -1165,6 +1168,21 @@
       btn.addEventListener("click",()=>{
         document.querySelectorAll(".filter-btn[data-topic]").forEach(b=>b.classList.remove("active"));
         btn.classList.add("active"); activeTopic=btn.dataset.topic; renderRepos(allRepos);
+      });
+    });
+    document.querySelectorAll(".filter-btn[data-fork]").forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        const val = btn.dataset.fork==="true";
+        if(activeFork===val){
+          // toggle off — show all
+          btn.classList.remove("active");
+          activeFork=null;
+        } else {
+          document.querySelectorAll(".filter-btn[data-fork]").forEach(b=>b.classList.remove("active"));
+          btn.classList.add("active");
+          activeFork=val;
+        }
+        renderRepos(allRepos);
       });
     });
   }
