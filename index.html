@@ -169,7 +169,7 @@
   .hero-photo-wrap { display: flex; align-items: flex-start; gap: clamp(22px,4vw,50px); flex-wrap: wrap; }
   .hero-photo {
     flex-shrink: 0;
-    width: clamp(130px,18vw,220px); height: clamp(130px,18vw,220px);
+    width: clamp(160px, 22vw, 280px); height: clamp(160px, 22vw, 280px);
     border-radius: 50%;
     border: 2px solid var(--pink);
     box-shadow: 0 0 0 4px rgba(255,45,155,0.12), 0 0 24px var(--pink-glow), 0 0 50px rgba(255,45,155,0.12);
@@ -188,7 +188,7 @@
   }
   .hero-sub {
     font-size: clamp(14px,1.7vw,17px); color: #e8deff;
-    font-style: italic; line-height: 1.7; max-width: 500px; margin-top: 20px;
+    font-style: italic; line-height: 1.7; max-width: 500px; margin-top: 100px;
     opacity: 0; animation: fadeUp .7s .4s ease forwards;
     background: rgba(7,0,15,0.62); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
     padding: 12px 16px; border-radius: 8px; border-left: 2px solid rgba(0,229,255,0.45);
@@ -969,7 +969,7 @@
   // ── REPOS ──────────────────────────────────────
   const GITHUB_USERNAME = "IvnMD";
   let allRepos = [];
-  let activeTopic = "all";
+  let activeTopic = "showcase";
   let showOnlyForks = false;
 
   function formatDate(iso){
@@ -1081,13 +1081,17 @@ async function main(){
       renderRepos(allRepos);
 
       // ── Actualiza stat-boxes dinámicamente ──
-      const propios = allRepos.filter(r => !r.fork);
-      const forks   = allRepos.filter(r =>  r.fork);
+      const propios   = allRepos.filter(r => !r.fork);
+      const forks     = allRepos.filter(r =>  r.fork);
       const estrellas = allRepos.reduce((sum, r) => sum + r.stargazers_count, 0);
 
-      document.querySelector('[data-stat="repos"]').textContent   = propios.length;
-      document.querySelector('[data-stat="forks"]').textContent   = forks.length;
-      document.querySelector('[data-stat="stars"]').textContent   = estrellas;
+      const setStatEl = (key, val) => {
+        const el = document.querySelector(`[data-stat="${key}"]`);
+        if (el) el.textContent = val;
+      };
+      setStatEl("repos",   propios.length);
+      setStatEl("forks",   forks.length);
+      setStatEl("stars",   estrellas);
 
     } catch(e){
       document.getElementById("repos-grid").innerHTML = `<p class="empty">// ${e.message}</p>`;
