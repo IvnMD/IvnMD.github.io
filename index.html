@@ -610,7 +610,7 @@
   <div class="hero-deco">
     <div class="stat-grid">
       <div class="stat-box"><div class="stat-num">15<span style="font-size:14px;font-family:'Exo 2'">+</span></div><div class="stat-label">Años negocio</div></div>
-      <div class="stat-box"><div class="stat-num">9</div><div class="stat-label">Repos GitHub</div></div>
+      <div class="stat-box"><div class="stat-num" data-stat="repos">…</div><div class="stat-label">Repos GitHub</div></div>
     </div>
     <div class="code-block">
       <span class="c-cm">// IvanMesa.java</span><br>
@@ -1074,11 +1074,21 @@
     });
   }
 
-  async function main(){
+async function main(){
     bindUI();
     try{
       allRepos = await fetchRepos();
       renderRepos(allRepos);
+
+      // ── Actualiza stat-boxes dinámicamente ──
+      const propios = allRepos.filter(r => !r.fork);
+      const forks   = allRepos.filter(r =>  r.fork);
+      const estrellas = allRepos.reduce((sum, r) => sum + r.stargazers_count, 0);
+
+      document.querySelector('[data-stat="repos"]').textContent   = propios.length;
+      document.querySelector('[data-stat="forks"]').textContent   = forks.length;
+      document.querySelector('[data-stat="stars"]').textContent   = estrellas;
+
     } catch(e){
       document.getElementById("repos-grid").innerHTML = `<p class="empty">// ${e.message}</p>`;
     }
