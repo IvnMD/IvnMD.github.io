@@ -915,9 +915,12 @@
         <p class="section-tag">Contacto</p>
         <h2 class="section-title" style="margin-bottom:26px">Hablemos</h2>
         <div class="contact-links">
-          <a class="contact-link" href="tel:+34647818861">
+          <a class="contact-link" href="#" id="tel-link" onclick="return revealPhone(this)">
             <div class="contact-link-icon">📞</div>
-            <div class="contact-link-text"><span class="contact-link-label">Teléfono</span><span class="contact-link-value">+34 647 818 861</span></div>
+            <div class="contact-link-text">
+              <span class="contact-link-label">Teléfono</span>
+              <span class="contact-link-value" id="tel-display">[ clic para mostrar ]</span>
+          </div>
           </a>
           <a class="contact-link" href="https://www.linkedin.com/in/ivanmesadominguez/" target="_blank">
             <div class="contact-link-icon">💼</div>
@@ -925,7 +928,7 @@
           </a>
           <a class="contact-link" href="mailto:ivnmd.exponent904@passinbox.com">
             <div class="contact-link-icon">✉️</div>
-            <div class="contact-link-text"><span class="contact-link-label">Email</span><span class="contact-link-value">ivan@example.com</span></div>
+            <div class="contact-link-text"><span class="contact-link-label">Email</span><span class="contact-link-value">ivnmd.exponent904@passinbox.com</span></div>
           </a>
           <a class="contact-link" href="https://github.com/IvnMD" target="_blank">
             <div class="contact-link-icon">🐙</div>
@@ -1080,6 +1083,14 @@
       document.getElementById("repos-grid").innerHTML = `<p class="empty">// ${e.message}</p>`;
     }
   }
+  function revealPhone(el) {
+  const p = ["34", "647", "818", "861"];
+  const num = "+" + p.join("");
+  document.getElementById("tel-display").textContent = "+" + p[0] + " " + p[1] + " " + p[2] + " " + p[3];
+  el.href = "tel:" + num;
+  el.onclick = null; 
+  return false; 
+}
   main();
 
   // Hamburger
