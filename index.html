@@ -302,20 +302,21 @@
 
     .hero-text { flex: 1; min-width: 240px; }
 
-    .hero-name {
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 900;
-      font-size: clamp(38px, 8vw, 100px);
-      line-height: 0.94;
-      letter-spacing: -0.01em;
-      background: linear-gradient(135deg, #fff 0%, var(--cyan) 30%, var(--pink) 65%, var(--purple) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      filter: drop-shadow(0 0 20px rgba(255,45,155,0.3));
-      opacity: 0;
-      animation: fadeUp .7s .25s ease forwards;
-    }
+.hero-name {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: clamp(38px, 8vw, 100px);
+  line-height: 0.94;
+  letter-spacing: -0.01em;
+  background: linear-gradient(135deg, #fff 0%, var(--cyan) 20%, var(--pink) 45%, var(--purple) 65%, var(--cyan) 85%, #fff 100%);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(255, 45, 155, 0.3));
+  opacity: 0;
+  animation: fadeUp .7s .25s ease forwards, gradientShift 7s 1s ease-in-out infinite;
+}
 
     .hero-sub {
       font-size: clamp(14px, 1.7vw, 17px);
@@ -946,6 +947,12 @@
     footer p { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
     footer span { color: var(--pink); text-shadow: 0 0 6px var(--pink-glow); }
 
+    @keyframes gradientShift {
+      0%   { background-position: 0% 0%; }
+      50%  { background-position: 100% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+    
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(22px); }
       to { opacity: 1; transform: translateY(0); }
@@ -979,9 +986,9 @@
     @media (min-width: 861px) {
       .hero-photo-wrap {
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: auto 1fr 1px;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
       }
       .hero-deco {
         position: static;
