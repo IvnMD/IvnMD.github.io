@@ -1479,29 +1479,31 @@
       padding: 10px 0;
     }
 
-@media (min-width: 861px) {
-  .hero-photo-wrap {
-    display: grid;
-    grid-template-columns: auto 1fr 1px;
-    align-items: center;
-    gap: 20px;
-  }
-  .hero-deco {
-    position: static;
-    transform: none;
-    width: 100%;
-    opacity: 0;
-    animation: fadeIn 1s .9s ease forwards;
-  }
-}
-  .hero-deco {
-    position: static;
-    transform: none;
-    width: clamp(170px,22vw,300px);
-    opacity: 0;
-    animation: fadeIn 1s .9s ease forwards;
-  }
-}
+    @media (min-width: 861px) {
+      .hero-photo-wrap {
+        display: grid;
+        grid-template-columns: auto 1fr 1px;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .hero-deco {
+        position: static;
+        transform: none;
+        width: 100%;
+        opacity: 0;
+        animation: fadeIn 1s .9s ease forwards;
+      }
+    }
+
+    .hero-deco {
+      position: static;
+      transform: none;
+      width: clamp(170px, 22vw, 300px);
+      opacity: 0;
+      animation: fadeIn 1s .9s ease forwards;
+    }
+    }
 
     @media (max-width: 1100px) {
       /* .hero-deco {
@@ -2020,7 +2022,7 @@
           <div class="skill-tags"><span class="skill-tag">JavaScript</span><span class="skill-tag">Calendar
               API</span><span class="skill-tag">RegEx</span></div>
         </div>
-        
+
         <div class="skill-card reveal">
           <div class="skill-card-icon">🌐</div>
           <h3>Web &amp; Markup</h3>
@@ -2040,26 +2042,27 @@
           <div class="skill-card-icon">🔄</div>
           <h3>Metodologías Ágiles</h3>
           <p>Nociones de Scrum y Extreme Programming (XP). Diagramas UML: clases, flujo, secuencia y casos de uso.</p>
-            <div class="skill-tags">
-          <span class="skill-tag">Scrum</span>
-          <span class="skill-tag">XP</span>
-          <span class="skill-tag">UML</span>
-          <span class="skill-tag">Diagramas</span>
+          <div class="skill-tags">
+            <span class="skill-tag">Scrum</span>
+            <span class="skill-tag">XP</span>
+            <span class="skill-tag">UML</span>
+            <span class="skill-tag">Diagramas</span>
+          </div>
         </div>
-      </div>
 
-<div class="skill-card reveal">
-  <div class="skill-card-icon">🎨</div>
-  <h3>Diseño &amp; Multimedia</h3>
-  <p>Nociones de modelado 3D, edición de imagen y audio. Herramientas aplicadas a prototipado y presentación de proyectos.</p>
-  <div class="skill-tags">
-    <span class="skill-tag">Blender</span>
-    <span class="skill-tag">Fusion 360</span>
-    <span class="skill-tag">SketchUp</span>
-    <span class="skill-tag">GIMP</span>
-    <span class="skill-tag">Audacity</span>
-  </div>
-</div>
+        <div class="skill-card reveal">
+          <div class="skill-card-icon">🎨</div>
+          <h3>Diseño &amp; Multimedia</h3>
+          <p>Nociones de modelado 3D, edición de imagen y audio. Herramientas aplicadas a prototipado y presentación de
+            proyectos.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Blender</span>
+            <span class="skill-tag">Fusion 360</span>
+            <span class="skill-tag">SketchUp</span>
+            <span class="skill-tag">GIMP</span>
+            <span class="skill-tag">Audacity</span>
+          </div>
+        </div>
         <div class="skill-card reveal">
           <div class="skill-card-icon">🔧</div>
           <h3>Assembly &amp; Bajo Nivel</h3>
@@ -2158,142 +2161,112 @@
 
   <!-- PROYECTOS -->
   <section id="proyectos" class="section-dark">
-    <div class="wrap">
-      <div class="section-header reveal">
-        <p class="section-tag">Proyectos</p>
-        <h2 class="section-title">Código con<br><span>Propósito Real</span></h2>
-        <p class="section-desc">Desde algoritmos de bajo nivel hasta automatización empresarial en producción —
-          proyectos con propósito real, no solo ejercicios de clase.</p>
-      </div>
-      <div class="projects-grid">
-        <div class="project-card reveal">
-          <div class="project-accent"></div>
-          <div class="project-body">
-            <span class="project-badge"><span class="dot"></span>Proyecto Académico · ULL</span>
-            <h3>GrafosEnCpp</h3>
-            <p class="p-desc">Implementación completa de estructuras de datos y 8 algoritmos de grafos optimizados en
-              C++.</p>
-            <ul class="project-feats">
-              <li>Kruskal, Prim, Dijkstra, Bellman-Ford, Floyd-Warshall</li>
-              <li>DFS, BFS y Programación Dinámica en Matrices</li>
-              <li>Listas de adyacencia con std::sort y lambdas C++11</li>
-              <li>Asignatura de Optimización — Universidad de La Laguna</li>
-            </ul>
-            <div class="project-stack">
-              <span class="project-tag">C++11</span><span class="project-tag">STL</span>
-              <span class="project-tag">Grafos</span><span class="project-tag">Algoritmos</span>
-            </div>
-            <a class="project-link" href="https://github.com/IvnMD/GrafosEnCpp" target="_blank">Ver repositorio ▸</a>
+  <div class="wrap">
+    <div class="section-header reveal">
+      <p class="section-tag">Proyectos</p>
+      <h2 class="section-title">Código con<br><span>Propósito Real</span></h2>
+      <p class="section-desc">Desde algoritmos de bajo nivel hasta automatización empresarial en producción —
+        proyectos con propósito real, no solo ejercicios de clase.</p>
+    </div>
+    <div class="projects-grid">
+
+      <!-- TARJETA 1 -->
+      <div class="project-card reveal">
+        <div class="project-accent v2"></div>
+        <div class="project-body">
+          <span class="project-badge"><span class="dot" style="background:var(--pink);box-shadow:0 0 4px var(--pink)"></span>Solución Real · v3.2</span>
+          <h3>Gestión Pagos a Proveedores</h3>
+          <p class="p-desc">Automatización empresarial real: de gestión manual en portales bancarios a un dashboard centralizado.</p>
+          <ul class="project-feats">
+            <li>Sincronización automática Google Calendar → Sheets</li>
+            <li>Control PAGADO / SIN PAGAR con formato condicional</li>
+            <li>Anti-duplicados con ID nativo de Calendar (ev.getId())</li>
+            <li>Tabla resumen: total diario, pagado y previsto mensual</li>
+            <li>4 iteraciones evolutivas con feedback real del cliente</li>
+          </ul>
+          <div class="project-stack">
+            <span class="project-tag">Apps Script</span>
+            <span class="project-tag">Calendar API</span>
+            <span class="project-tag">Sheets API</span>
+            <span class="project-tag">RegEx</span>
           </div>
+          <a class="project-link" href="https://github.com/IvnMD/GestionDePagosAProveedoresEnGoogleWorkspace" target="_blank">Ver repositorio ▸</a>
         </div>
-        <div class="project-card reveal">
-          <div class="project-accent v2"></div>
-          <div class="project-body">
-            <span class="project-badge"><span class="dot"
-                style="background:var(--pink);box-shadow:0 0 4px var(--pink)"></span>Solución Real · v3.1</span>
-            <h3>Gestión Pagos a Proveedores</h3>
-            <p class="p-desc">Automatización empresarial real: de gestión manual en portales bancarios a un dashboard
-              centralizado.</p>
-            <ul class="project-feats">
-              <li>Sincronización automática Google Calendar → Sheets</li>
-              <li>Control PAGADO / SIN PAGAR con formato condicional</li>
-              <li>Anti-duplicados con ID nativo de Calendar (ev.getId())</li>
-              <li>Tabla resumen: total diario, pagado y previsto mensual</li>
-              <li>4 iteraciones evolutivas con feedback real del cliente</li>
-            </ul>
-            <div class="project-stack">
-              <span class="project-tag">Apps Script</span><span class="project-tag">Calendar API</span>
-              <span class="project-tag">Sheets API</span><span class="project-tag">RegEx</span>
-            </div>
-            <a class="project-link" href="https://github.com/IvnMD/GestionDePagosAProveedoresEnGoogleWorkspace"
-              target="_blank">Ver repositorio ▸</a>
+      </div>
 
-            <div class="project-card reveal">
-  <div class="project-accent"></div>
-  <div class="project-body">
-    <span class="project-badge"><span class="dot"></span>Proyecto Académico · DAM</span>
-    <h3>Gestión de Usuarios</h3>
-    <p class="p-desc">Sistema CRUD completo de gestión de usuarios desarrollado en Java con arquitectura orientada a objetos.</p>
-    <ul class="project-feats">
-      <li>Crear, leer, actualizar y eliminar usuarios</li>
-      <li>Arquitectura POO con separación de capas</li>
-      <li>Validación de entradas y persistencia de datos</li>
-      <li>Asignatura de Programación — DAM</li>
-    </ul>
-    <div class="project-stack">
-      <span class="project-tag">Java</span>
-      <span class="project-tag">POO</span>
-      <span class="project-tag">Collections</span>
-    </div>
-    <a class="project-link" href="https://github.com/IvnMD/GestionUsuariosJava" target="_blank">Ver repositorio ▸</a>
-  </div>
-</div>
 
-<div class="project-card reveal">
-  <div class="project-accent v2"></div>
-  <div class="project-body">
-    <span class="project-badge"><span class="dot" style="background:var(--purple);box-shadow:0 0 4px var(--purple)"></span>Proyecto Académico · DAM</span>
-    <h3>Doodle Jump MIPS32</h3>
-    <p class="p-desc">Juego Doodle Jump implementado íntegramente en ensamblador MIPS32 con gráficos en Bitmap Display.</p>
-    <ul class="project-feats">
-      <li>Lógica de juego: movimiento, saltos, colisiones y puntuación</li>
-      <li>Gráficos renderizados en Bitmap Display de MARS</li>
-      <li>Gestión directa de registros, memoria y stack</li>
-      <li>Asignatura de Arquitectura de Computadores — DAM</li>
-    </ul>
-    <div class="project-stack">
-      <span class="project-tag">MIPS32</span>
-      <span class="project-tag">Assembly</span>
-      <span class="project-tag">Bitmap Display</span>
-      <span class="project-tag">MARS</span>
-    </div>
-    <a class="project-link" href="https://github.com/IvnMD/DoodleJumpMips32Assembly" target="_blank">Ver repositorio ▸</a>
-  </div>
-</div>
+
+      <!-- TARJETA 2 -->
+      <div class="project-card reveal">
+        <div class="project-accent"></div>
+        <div class="project-body">
+          <span class="project-badge"><span class="dot"></span>Proyecto Académico · ULL</span>
+          <h3>GrafosEnCpp</h3>
+          <p class="p-desc">Implementación completa de estructuras de datos y 8 algoritmos de grafos optimizados en C++.</p>
+          <ul class="project-feats">
+            <li>Kruskal, Prim, Dijkstra, Bellman-Ford, Floyd-Warshall</li>
+            <li>DFS, BFS y Programación Dinámica en Matrices</li>
+            <li>Listas de adyacencia con std::sort y lambdas C++11</li>
+            <li>Asignatura de Optimización — Universidad de La Laguna</li>
+          </ul>
+          <div class="project-stack">
+            <span class="project-tag">C++11</span>
+            <span class="project-tag">STL</span>
+            <span class="project-tag">Grafos</span>
+            <span class="project-tag">Algoritmos</span>
           </div>
+          <a class="project-link" href="https://github.com/IvnMD/GrafosEnCpp" target="_blank">Ver repositorio ▸</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <hr class="divider">
+      <!-- TARJETA 3 -->
+      <div class="project-card reveal">
+        <div class="project-accent"></div>
+        <div class="project-body">
+          <span class="project-badge"><span class="dot"></span>Proyecto Académico · DAM</span>
+          <h3>Gestión de Usuarios</h3>
+          <p class="p-desc">Sistema CRUD completo de gestión de usuarios desarrollado en Java con arquitectura orientada a objetos.</p>
+          <ul class="project-feats">
+            <li>Crear, leer, actualizar y eliminar usuarios</li>
+            <li>Arquitectura POO con separación de capas</li>
+            <li>Validación de entradas y persistencia de datos</li>
+            <li>Asignatura de Programación — DAM</li>
+          </ul>
+          <div class="project-stack">
+            <span class="project-tag">Java</span>
+            <span class="project-tag">POO</span>
+            <span class="project-tag">Collections</span>
+          </div>
+          <a class="project-link" href="https://github.com/IvnMD/GestionUsuariosJava" target="_blank">Ver repositorio ▸</a>
+        </div>
+      </div>
 
-  <!-- REPOS -->
-  <section id="repos">
-    <div class="wrap">
-      <div class="section-header reveal">
-        <p class="section-tag">GitHub · IvnMD</p>
-        <h2 class="section-title">Todos los<br><span>Repositorios</span></h2>
-      </div>
-      <div class="toolbar reveal">
-        <div class="search-wrap">
-          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
-          <input id="q" class="input" placeholder="Buscar repositorios...">
-        </div>
-        <select id="sort" class="select">
-          <option value="updated">Actividad reciente</option>
-          <option value="stars">Estrellas</option>
-          <option value="name">Nombre A-Z</option>
-        </select>
-        <div class="filter-btns">
-          <button class="filter-btn active" data-topic="showcase">showcase</button>
-          <button class="filter-btn" data-topic="java">java</button>
-          <button class="filter-btn" data-topic="cpp">cpp</button>
-          <button class="filter-btn" data-topic="automation">automation</button>
-          <button class="filter-btn" data-topic="all">Todos</button>
-          <button class="filter-btn" data-fork="true">⑂ Forks</button>
+      <!-- TARJETA 4 -->
+      <div class="project-card reveal">
+        <div class="project-accent v2"></div>
+        <div class="project-body">
+          <span class="project-badge"><span class="dot" style="background:var(--purple);box-shadow:0 0 4px var(--purple)"></span>Actividad recreativa personal</span>
+          <h3>Doodle Jump MIPS32</h3>
+          <p class="p-desc">Juego Doodle Jump implementado íntegramente en ensamblador MIPS32 con gráficos en Bitmap Display.</p>
+          <ul class="project-feats">
+            <li>Lógica de juego: movimiento, saltos, colisiones y puntuación</li>
+            <li>Gráficos renderizados en Bitmap Display de MARS</li>
+            <li>Gestión directa de registros, memoria y stack</li>
+            <li>Asignatura de Arquitectura de Computadores — DAM</li>
+          </ul>
+          <div class="project-stack">
+            <span class="project-tag">MIPS32</span>
+            <span class="project-tag">Assembly</span>
+            <span class="project-tag">Bitmap Display</span>
+            <span class="project-tag">MARS</span>
+          </div>
+          <a class="project-link" href="https://github.com/IvnMD/DoodleJumpMips32Assembly" target="_blank">Ver repositorio ▸</a>
         </div>
       </div>
-      <div id="repos-grid" class="repos-grid">
-        <div class="loader">
-          <div class="spinner"></div> Cargando repositorios…
-        </div>
-      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
   <hr class="divider">
 
