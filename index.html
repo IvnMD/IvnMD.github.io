@@ -135,6 +135,26 @@
 
     .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 0 24px var(--pink), 0 0 48px rgba(255,45,155,0.3); }
 
+    .underline-slide {
+      position: relative;
+      display: inline-block;
+    }
+
+    .underline-slide::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 1px;
+      background: linear-gradient(90deg, var(--pink), var(--cyan));
+      animation: underline-in 1.2s 0.6s ease forwards;
+    }
+
+    @keyframes underline-in {
+      to { width: 100%; }
+    }
+    
     @keyframes pinkPulse {
       0%, 100% { box-shadow: 0 0 14px var(--pink-glow); }
       50% { box-shadow: 0 0 26px var(--pink), 0 0 50px rgba(255,45,155,0.25); }
@@ -963,6 +983,15 @@
       to { opacity: 1; }
     }
 
+    @keyframes glow-pulse {
+      0%, 100% { text-shadow: 0 0 6px currentColor; opacity: 1; }
+      50%       { text-shadow: 0 0 18px currentColor, 0 0 32px currentColor; opacity: .85; }
+    }
+
+.glow-pulse {
+  animation: glow-pulse 3.5s ease-in-out infinite;
+}
+
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
@@ -1191,7 +1220,7 @@
     <div class="wrap">
       <div class="section-header reveal">
         <p class="section-tag">Sobre mí</p>
-        <h2 class="section-title">Junior con visión<br>de <span>negocio real</span></h2>
+        <h2 class="section-title">Junior con visión<br>de <span class="gradient-text glow-pulse" style="animation-delay: 0s">negocio real</span></h2>
         <p class="section-desc">No un alumno verde ni un excomercial reconvertido — un desarrollador en formación que
           entiende cómo el software impacta en los procesos reales de una empresa.</p>
       </div>
@@ -1247,7 +1276,7 @@
           </div>
         </div>
         <div class="value-card reveal">
-          <p class="value-highlight">Experiencia <span>profesional</span></p>
+          <p class="value-highlight">Experiencia <span class="gradient-text glow-pulse" style="animation-delay: 1.2s">profesional</span></p>
           <p style="color:var(--muted);font-size:12.5px;margin-bottom:14px;font-style:italic">Dirección Comercial y Gestión Empresarial · 15 años</p>
           <div class="value-row"><span class="value-icon">📊</span><span>Digitalización y optimización de procesos comerciales mediante CRM (Salesforce Sales Cloud).</span></div>
           <div class="value-row"><span class="value-icon">📈</span><span>Análisis de datos de ventas y generación de reportes estratégicos para toma de decisiones.</span></div>
@@ -1256,7 +1285,7 @@
           <p style="color:var(--text);font-size:13px;margin-top:16px;padding-top:14px;border-top:1px solid var(--border-n);font-style:italic;line-height:1.6">
             Esta etapa me ha aportado una visión global del funcionamiento empresarial, algo que aplico ahora al desarrollo de soluciones tecnológicas con enfoque práctico.
           </p>
-          <p class="value-highlight" style="margin-top:24px;font-size:clamp(14px,2vw,18px)">Qué puedo <span>aportar</span></p>
+          <p class="value-highlight" style="margin-top:24px;font-size:clamp(14px,2vw,18px)">Qué puedo <span class="gradient-text glow-pulse" style="animation-delay: 2.4s">aportar</span></p>
           <div class="value-row"><span class="value-icon">🎯</span><span>Responsabilidad y mentalidad profesional desde el primer día.</span></div>
           <div class="value-row"><span class="value-icon">📋</span><span>Capacidad de organización y documentación clara del código y los procesos.</span></div>
           <div class="value-row"><span class="value-icon">🧩</span><span>Visión empresarial aplicada al desarrollo técnico: <strong style="color:#f0e6ff">la tecnología debe adaptarse al negocio, no al revés.</strong></span></div>
@@ -1278,7 +1307,7 @@
     <div class="wrap">
       <div class="section-header reveal">
         <p class="section-tag">Stack tecnológico</p>
-        <h2 class="section-title">Herramientas &amp;<br><span>Conocimientos</span></h2>
+        <h2 class="section-title">Herramientas &amp;<br><span class="gradient-text glow-pulse" style="animation-delay: 0s">Conocimientos</span></h2>
         <p class="section-desc">Formación técnica activa con aplicación práctica real en cada tecnología.</p>
       </div>
       <div class="skills-grid">
@@ -1341,7 +1370,7 @@
     <div class="wrap">
       <div class="section-header reveal">
         <p class="section-tag">Formación &amp; Certificaciones</p>
-        <h2 class="section-title">Aprendizaje<br><span>Continuo</span></h2>
+        <h2 class="section-title">Aprendizaje<br><span class="gradient-text glow-pulse" style="animation-delay: 1.2s">Continuo</span></h2>
         <p class="section-desc">Formación técnica reglada combinada con certificaciones especializadas del sector.</p>
       </div>
       <div class="edu-grid">
@@ -1423,7 +1452,7 @@
     <div class="wrap">
       <div class="section-header reveal">
         <p class="section-tag">Proyectos</p>
-        <h2 class="section-title">Código con<br><span>Propósito Real</span></h2>
+        <h2 class="section-title">Código con<br><span class="gradient-text glow-pulse" style="animation-delay: 2.4s">Propósito Real</span></h2>
         <p class="section-desc">Desde algoritmos de bajo nivel hasta automatización empresarial en producción —
           proyectos con propósito real, no solo ejercicios de clase.</p>
       </div>
@@ -1532,7 +1561,7 @@
     <div class="wrap">
       <div class="section-header reveal">
         <p class="section-tag">GitHub · IvnMD</p>
-        <h2 class="section-title">Todos los<br><span>Repositorios</span></h2>
+        <h2 class="section-title">Todos los<br><span class="gradient-text glow-pulse" style="animation-delay: 0s">Repositorios</span></h2>
       </div>
       <div class="toolbar reveal">
         <div class="search-wrap">
@@ -1572,7 +1601,7 @@
       <div class="contact-inner">
         <div class="reveal">
           <p class="section-tag">Contacto</p>
-          <h2 class="section-title" style="margin-bottom:26px">Hablemos</h2>
+          <h2 class="section-title" style="margin-bottom:26px"><span class="underline-slide">Hablemos</h2>
           <div class="contact-links">
             <a class="contact-link" href="#" id="tel-link" onclick="return revealPhone(this)">
               <div class="contact-link-icon">📞</div>
@@ -1597,7 +1626,7 @@
         </div>
         <div class="reveal">
           <p class="contact-quote">
-            No busco una oportunidad para "aprender desde cero". Busco un equipo donde <strong>aportar desde el primer día</strong> y seguir creciendo como desarrollador.
+            No busco una oportunidad para "aprender desde cero". Busco un equipo donde <strong><span class="gradient-text glow-pulse" style="animation-delay: 2.4s">aportar desde el primer día</strong> y seguir creciendo como desarrollador.
           </p>
           <p class="contact-sub">
             Disponible de forma inmediata para prácticas DAM o posición Junior/Trainee en Canarias (presencial o remoto). Carné B y vehículo propio. 15 años de criterio profesional al servicio del código.
