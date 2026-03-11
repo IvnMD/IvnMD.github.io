@@ -138,6 +138,7 @@
     .underline-slide {
       position: relative;
       display: inline-block;
+      color:white;
     }
 
     .underline-slide::after {
@@ -145,14 +146,16 @@
       position: absolute;
       bottom: -4px;
       left: 0;
-      width: 0%;
+      width: 100%;
       height: 1px;
       background: linear-gradient(90deg, var(--pink), var(--cyan));
+      transform: scaleX(0);
+      transform-origin: left;
       animation: underline-in 1.2s 0.6s ease forwards;
     }
 
     @keyframes underline-in {
-      to { width: 100%; }
+      to { transform: scaleX(1); }
     }
     
     @keyframes pinkPulse {
@@ -985,12 +988,12 @@
 
     @keyframes glow-pulse {
       0%, 100% { text-shadow: 0 0 6px currentColor; opacity: 1; }
-      50%       { text-shadow: 0 0 18px currentColor, 0 0 32px currentColor; opacity: .85; }
+      50%       { text-shadow: 0 0 18px currentColor, 0 0 32px currentColor; opacity: .50; }
     }
 
-.glow-pulse {
-  animation: glow-pulse 3.5s ease-in-out infinite;
-}
+    .glow-pulse {
+      animation: glow-pulse 5s ease-in-out infinite;
+    }
 
     .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
     .reveal.visible { opacity: 1; transform: none; }
@@ -1005,11 +1008,23 @@
       animation: spin .7s linear infinite;
       box-shadow: 0 0 8px var(--pink-glow);
     }
-
+    
     @keyframes spin { to { transform: rotate(360deg); } }
 
     .loader { display: flex; align-items: center; gap: 12px; color: var(--muted); font-family: 'Share Tech Mono', monospace; font-size: 11.5px; padding: 10px 0; }
 
+    .cursor-glow {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,45,155,0.08) 0%, rgba(0,255,240,0.04) 40%, transparent 70%);
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+    
     /* ── MEDIA QUERIES ── */
 
     @media (min-width: 861px) {
@@ -1097,7 +1112,7 @@
 </head>
 
 <body>
-
+  <div class="cursor-glow" id="cursorGlow"></div>
   <!-- NAV -->
   <nav class="topbar">
     <a class="topbar-logo" href="#hero">IVÁN<span>.DEV</span></a>
@@ -1810,7 +1825,33 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Cursor glow
+    const cursorGlow = document.getElementById('cursorGlow');
+      document.addEventListener('mousemove', e => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top  = e.clientY + 'px';
+    });
+
+    document.addEventListener('mouseleave', () => {
+      cursorGlow.style.opacity = '0';
+    });
+
+    document.addEventListener('mouseenter', () => {
+      cursorGlow.style.opacity = '1';
+    });
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorGlow.style.background = 'radial-gradient(circle, rgba(255,45,155,0.15) 0%, rgba(0,255,240,0.08) 40%, transparent 70%)';
+      });
+     el.addEventListener('mouseleave', () => {
+        cursorGlow.style.background = 'radial-gradient(circle, rgba(255,45,155,0.08) 0%, rgba(0,255,240,0.04) 40%, transparent 70%)';
+      });
+    });
+    
   </script>
 </body>
+
 
 </html>
