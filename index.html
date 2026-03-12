@@ -1056,14 +1056,16 @@
     @media (min-width: 861px) {
       .hero-photo-wrap {
         display: grid;
-        grid-template-columns: auto 1fr 1px;
+        /*grid-template-columns: auto 1fr 1px;*/
+        grid-template-columns: auto 1fr clamp(170px, 22vw, 300px);
         align-items: center;
         gap: 10px;
       }
       .hero-deco {
         position: static;
         transform: none;
-        width: clamp(170px, 22vw, 300px);
+        /*width: clamp(170px, 22vw, 300px);*/
+        width: 100%;
         opacity: 0;
         animation: fadeIn 1s .9s ease forwards;
       }
